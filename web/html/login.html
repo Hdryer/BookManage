@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>图书管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-image: url("../images/封面.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+        .lab1{
+            color: red;
+            margin-top: 10px;
+            margin-right: 3%;
+            float: right;
+            font-size: 5px;
+        }
+        .lab1:hover{
+            text-decoration: underline;
+        }
+        .lab2{
+            color: red;
+            margin-left: 12%;
+        }
+        .div1{
+            width: 500px;
+            height: 300px;
+            border: black 1px solid;
+            border-radius: 4px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: rgba(235, 246, 239, 0.7);
+        }
+        .div2{
+            margin-left: 20%;
+            margin-top: 8%;
+        }
+        .div3{
+            margin-left: 20%;
+            margin-top: 2%;
+        }
+        .div4{
+            margin-left: 20%;
+            margin-top: 2%;
+        }
+        input[type=text]{
+            margin: 10px;
+            padding: 5px;
+            width: 50%;
+            border-radius: 4px;
+            border: black 1px solid;
+        }
+        input[type=password]{
+            margin: 10px;
+            padding: 5px;
+            width: 50%;
+            border-radius: 4px;
+            border: black 1px solid;
+        }
+        input[type=radio]{
+            margin-left: 25px;
+        }
+        .btn{
+            width: 80px;
+            height: 40px;
+            border: black 1px solid;
+            border-radius: 4px;
+            background-color: #f1efeb;
+            color: black;
+            font-size: 15px;
+            margin-left: 40%;
+            margin-top: 3%;
+        }
+        .btn:hover{
+            background-color: #faf8ec;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div>
+        <p style="text-align: center; font-family: 宋体;font-size:50px;margin-top: 50px">图书管理系统</p>
+        <div class="div1">
+            <label class="lab1">未有账号？注册</label>
+            <form action="/user/login" method="post" id="myform">
+                <div class="div2">
+                    <div><label id="lab2" class="lab2" th:text="${param. message}"></label></div>
+                    <label>账号:</label>
+                    <input type="text" name="admin" id="admin" placeholder="QQ号码/手机号" >
+                </div>
+                <div class="div3">
+                    <label>密码:</label>
+                    <input type="password" name="password" id="password" placeholder="密码">
+                </div>
+                <div class="div4">
+                    <label>身份:</label>
+                    <label><input type="radio" name="identity" value="0">管理员</label>
+                    <label><input type="radio" name="identity" value="1">普通用户</label>
+                </div>
+                <div>
+                    <button type="button" id="login" class="btn">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $("#login").click(function () {
+                if ($("#admin").val()==""){
+                    $("#lab2").text("账号不能为空");
+                }else if ($("#password").val()==""){
+                    $("#lab2").text("密码不能为空");
+                }else {
+                    $("#myform").submit();
+                }
+            });
+        })
+    </script>
+</body>
+</html>

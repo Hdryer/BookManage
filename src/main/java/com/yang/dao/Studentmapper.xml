@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yang.dao.Studentmapper">
+    <select id="allstudent" resultType="student">
+        select * from user_student;
+    </select>
+
+    <select id="querystudent" resultType="student">
+        select * from user_student where studentid=#{studentid} and password =#{password};
+    </select>
+
+    <insert id="addstudent" parameterType="student">
+        insert into user_student (studentid,password,username,sex,age,address,identity) values(#{studentid},#{password},#{username},#{sex},#{age},#{address},#{identity});
+    </insert>
+
+    <delete id="deletestudent">
+        delete from user_student where studentid=#{studentid};
+    </delete>
+
+    <update id="updatestudent" parameterType="student">
+        update user_student set password=#{password},username=#{username},sex=#{sex},age=#{age},address=#{address},identity=#{identity} where studentid =#{studentid};
+    </update>
+
+    <update id="updatepassword">
+        update user_student set password=#{password} where studentid=#{studentid};
+    </update>
+</mapper>

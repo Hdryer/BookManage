@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="../js/bookmanage.js">
+    </script>
+    <script src="../js/jquery.js"></script>
+</head>
+<body>
+    <div class="container" style="height: 600px;border: 1px black solid">
+        <div class="row">
+            <div class="col-md-1"><button class="btn btn-default btn-group-justified">×</button></div>
+            <div class="col-md-1"><button class="btn btn-default btn-group-vertical">×</button></div>
+            <div class="col-md-1"><button class="btn btn-default btn-group-sm">×</button></div>
+            <div class="col-md-1"><button class="btn btn-default btn-group-lg" style="font-size: 50px">×</button></div>
+        </div>
+
+
+        <div class="div4">
+            <label>身份:</label>
+            <label><input type="radio" name="identity" value="0">管理员</label>
+            <label><input type="radio" id="2" name="identity" value="1">普通用户</label>
+        </div>
+        <button id="btnn">点点</button>
+        <h2>创建模态框（Modal）</h2>
+        <!-- 按钮触发模态框 -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+                    </div>
+                    <div class="modal-body">在这里添加一些文本</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary">提交更改</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+<script>
+    $("#btnn").click(function () {
+        var val= $(".div4 input:radio[name='identity']:checked").val();
+        alert(val);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yang.dao.Booksmapper">
+    <select id="allbook" resultType="book">
+        select * from allbook;
+    </select>
+
+    <select id="querybook" resultType="book" parameterType="String">
+        select * from allbook where bookid= #{bookid};
+    </select>
+
+    <insert id="addbook" parameterType="book">
+        insert into allbook (bookid,bookname,author,num,something) values (#{bookid},#{bookname},#{author},#{num},#{something});
+    </insert>
+
+    <delete id="deletebook" parameterType="String">
+        delete from allbook where bookid= #{bookid};
+    </delete>
+
+    <update id="updatebook" parameterType="book">
+        update allbook set bookname = #{bookname},author = #{author}, num=#{num},something=#{something} where bookid=#{bookid};
+    </update>
+</mapper>

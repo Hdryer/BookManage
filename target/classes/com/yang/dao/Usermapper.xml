@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yang.dao.Usermapper">
+    <select id="selectuser" parameterType="user" resultType="user">
+        select * from user_admin where admin =#{admin} and password=#{password} and identity =#{identity};
+    </select>
+    
+    <insert id="adduser" parameterType="user">
+        insert into user_admin (admin,password,identity) values (#{admin},#{password},#{identity});
+    </insert>
+
+    <select id="queryusers" resultType="user">
+        select * from user_admin;
+    </select>
+</mapper>

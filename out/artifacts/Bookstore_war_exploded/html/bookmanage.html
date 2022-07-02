@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../js/bookmanage.js"></script>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+        <div class="row">
+            <div class="col-md-2">
+                <h3 style="margin-top: 5px;font-family: 宋体;font-weight: bold">所有书籍</h3>
+            </div>
+            <div class="col-md-7"></div>
+            <div class="col-md-1"><button id="addbook" class="btn btn-primary" >上架书籍</button></div>
+            <div class="col-md-1"><button class="btn btn-warning" >批量删除</button></div>
+            <div class="col-md-1"></div>
+        </div>
+        <table class="table  table-hover table-condensed" style="text-align: center">
+            <thead>
+            <tr>
+                <th style="text-align: center">编号</th>
+                <th style="text-align: center">名称</th>
+                <th style="text-align: center">作者</th>
+                <th style="text-align: center">数量</th>
+                <th style="text-align: center">描述</th>
+                <th style="text-align: center">操作</th>
+            </tr>
+            </thead>
+            <tbody id="bookbody">
+
+            </tbody>
+        </table>
+<!--        添加面板-->
+        <div id="addpage" style="border: black 1px solid; display:none;left: 0;margin: auto;position: absolute;right: 0;top: 0;bottom: 0; background-color: white;width: 1000px;height: 600px; z-index: 2;border-radius: 5px">
+            <div class="row" style="margin: 10px">
+                <div class="col-md-2"><h4>上架书籍</h4></div>
+                <div class="col-md-9"></div>
+                <div class="col-md-1"><button id="off" class="btn btn-default btn-group-sm">×</button></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span>书籍编号：</span></div>
+                <div class="col-md-7"><input id="bookid" type="text" class="form-control"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span>书籍名称：</span></div>
+                <div class="col-md-7"><input id="bookname" type="text" class="form-control"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span>作者/出版社：</span></div>
+                <div class="col-md-7"><input id="author" type="text" class="form-control"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span>数目：</span></div>
+                <div class="col-md-7"><input id="num" type="text" class="form-control"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span> 简介：</span></div>
+                <div class="col-md-7"><input id="something" type="text" class="form-control"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <button id="add" class="btn btn-primary" style="margin-left: 48%">确认上架</button>
+        </div>
+
+<!--        修改面板-->
+        <div id="updatepage" style="border: black 1px solid; display:none;left: 0;margin: auto;position: absolute;right: 0;top: 0;bottom: 0; background-color: white;width: 1000px;height: 600px; z-index: 2;border-radius: 5px">
+            <div class="row" style="margin: 10px">
+                <div class="col-md-2"><h4>修改书籍</h4></div>
+                <div class="col-md-9"></div>
+                <div class="col-md-1"><button id="off2" class="btn btn-default btn-group-sm">×</button></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span>书籍编号：</span></div>
+                <div class="col-md-7"><input id="bookid2" type="text" class="form-control" readonly></div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span>书籍名称：</span></div>
+                <div class="col-md-7"><input id="bookname2" type="text" class="form-control"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span>作者/出版社：</span></div>
+                <div class="col-md-7"><input id="author2" type="text" class="form-control"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span>数目：</span></div>
+                <div class="col-md-7"><input id="num2" type="text" class="form-control"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row" style="margin: 50px">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"><span> 简介：</span></div>
+                <div class="col-md-7"><input id="something2" type="text" class="form-control"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <button id="update" class="btn btn-primary" style="margin-left: 48%">确认修改</button>
+        </div>
+</body>
+</html>
